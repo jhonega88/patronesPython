@@ -1,5 +1,6 @@
 from pygame import *
 from pygame.sprite import Sprite
+import numpy as np
 
 class Heroe(Sprite):
   instance = None
@@ -50,8 +51,12 @@ class Heroe(Sprite):
       self.rect.top %= 300
       self.rect.left %= 300
 
+    return self.sentido
+
   def draw(self, screen):
     fuente = font.Font(None, 20)
     texto = fuente.render("puntos: " + str(self.puntos), 1, (20,20,50))
     screen.blit(self.image, self.rect)
     screen.blit(texto, (self.rect.x - 20, self.rect.y -15))
+    list2 = [self.rect.x, self.rect.y]
+    return list2
